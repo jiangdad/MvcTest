@@ -1,0 +1,34 @@
+﻿@model IEnumerable<WebApplication2.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Movies2</title>
+    </head>
+
+<body>
+    <p>
+        @Html.ActionLink("Create", "Create")
+    </p>
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model=>model.Name)
+            </th>
+
+        </tr>
+        foreach(var item in Model)
+        <th>
+            @Html.DisplayFor(ModelItem=>item.Name)
+        </th>
+    </table>
+</body>
+</html>
+
+<h2>Index</h2>
+
