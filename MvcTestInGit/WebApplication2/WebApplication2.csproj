@@ -131,11 +131,20 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Movies2Controller.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902210217160_InitialCreate.cs" />
+    <Compile Include="Migrations\201902210217160_InitialCreate.Designer.cs">
+      <DependentUpon>201902210217160_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902210321500_Initial.cs" />
+    <Compile Include="Migrations\201902210321500_Initial.Designer.cs">
+      <DependentUpon>201902210321500_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Director.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,6 +202,14 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902210217160_InitialCreate.resx">
+      <DependentUpon>201902210217160_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902210321500_Initial.resx">
+      <DependentUpon>201902210321500_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

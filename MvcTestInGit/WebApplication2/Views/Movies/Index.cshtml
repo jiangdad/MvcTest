@@ -32,6 +32,9 @@
             <th>
             @Html.DisplayNameFor(model=>model.HumanNumber)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director.Name)
+            </th>
             <th></th>
         </tr>
     
@@ -51,6 +54,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem=>item.HumanNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Director.Name)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
