@@ -15,10 +15,10 @@ namespace WebApplication2.Controllers
         private MovieDbContext db = new MovieDbContext();
 
         // GET: Movies
-        public ActionResult Index()
-        {
-            return View(db.Movies.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    return View(db.Movies.ToList());
+        //}
 
         // GET: Movies/Details/5
         public ActionResult Details(int? id)
@@ -46,11 +46,12 @@ namespace WebApplication2.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,ReleaseDate,Genre,Price")] Movie movie)
+        public ActionResult Create([Bind(Include = "ID,Name,ReleaseDate,Genre,Price,HumanNumber,Movie.Director.Name")] Movie movie,[Bind(Include="Director.Name")] Director director)
         {
             if (ModelState.IsValid)
             {
                 db.Movies.Add(movie);
+                db.Director.Add(director);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -113,6 +114,17 @@ namespace WebApplication2.Controllers
             db.Movies.Remove(movie);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult Index(string SearchInfo)
+        {
+            var movies = from m in db.Movies select m;
+            var Director = db.Director;
+            if(!String.IsNullOrEmpty(SearchInfo))
+            {
+                movies = movies.Where(p => p.Genre.Contains(SearchInfo));
+            }
+            //return View(Tuple.Create(movies,Director));
+            return View(movies);
         }
 
         protected override void Dispose(bool disposing)

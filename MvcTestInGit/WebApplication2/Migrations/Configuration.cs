@@ -9,7 +9,7 @@ namespace WebApplication2.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "WebApplication2.Models.MovieDbContext";
         }
 
@@ -29,8 +29,8 @@ namespace WebApplication2.Migrations
             //
 
             //context.Movies.AddOrUpdate{
-            //    p=>p.Name,
-            //    new 
+            //    //p => p.Name,
+            //    //new
             //}
 
         }

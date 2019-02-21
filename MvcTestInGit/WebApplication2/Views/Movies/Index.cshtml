@@ -1,5 +1,5 @@
-﻿@model IEnumerable<WebApplication2.Models.Movie>
-
+﻿@model IEnumerable<WebApplication2.Models.Movie> 
+@*@model Tuple<WebApplication2.Models.Movie,WebApplication2.Models.Director>*@
 @{
     Layout = null;
 }
@@ -14,7 +14,16 @@
 <body>
     <p>
         @Html.ActionLink("Create New", "Create")
+        @using (Html.BeginForm())
+        {
+        <p>@Html.TextBox("SearchInfo") <input type="submit" value="filter" />
+         @Html.DropDownList("Genre", "Comedy")
+         <input type="submit" value="filter"/>
+       </p>
+        
+        }
     </p>
+  
     <table class="table">
         <tr>
             <th>
@@ -30,7 +39,7 @@
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-            @Html.DisplayNameFor(model=>model.HumanNumber)
+            @Html.DisplayNameFor(model => model.HumanNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Director.Name)
@@ -53,15 +62,15 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem=>item.HumanNumber)
+                @Html.DisplayFor(modelItem => item.HumanNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem=>item.Director.Name)
+                @Html.DisplayFor(modelItem => item.Director.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
             </td>
         </tr>
     }
