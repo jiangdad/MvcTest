@@ -70,7 +70,7 @@ namespace WebApplication2.Controllers
             {
                 return HttpNotFound();
             }
-            return View(movie);
+            return View(movie);//
         }
 
         // POST: Movies/Edit/5
