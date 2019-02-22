@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<WebApplication2.Models.Director>
+@{
     Layout = null;
 }
 
@@ -20,12 +21,25 @@
                    @Html.DisplayNameFor(model=>model.Address)
                </th>
            </tr>
+            @foreach (var item in Model)
+            {
             <tr>
                 <th>
-                    @Html.DisplayFor()
+                    @Html.DisplayFor(modelItem => item.Name)
                 </th>
+            <th>
+                    @Html.DisplayFor(modelItem => item.Address)
+            </th>
+                <th>@Html.ActionLink("Delete","Delete",new { id=item.ID }) /
+                    @Html.ActionLink("Edit","Edit",new { id = item.ID })
+                </th>
+   
+
             </tr>
+            }
+            
         </table>
     </div>
+  
 </body>
 </html>
