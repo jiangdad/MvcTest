@@ -10,8 +10,15 @@ namespace WebApplication2.Models
     {
         
 
-        public System.Data.Entity.DbSet<WebApplication2.Models.Movie> Movies { get; set; }
-        public System.Data.Entity.DbSet<WebApplication2.Models.Director> Director { get; set; }
+        public System.Data.Entity.DbSet<Movie> Movies { get; set; }
+        public System.Data.Entity.DbSet<Director> Director { get; set; }
 
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Director>()
+                .HasMany(e => e.Movie)
+                .WithOptional(e => e.Director);
+        }
     }
 }

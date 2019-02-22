@@ -12,6 +12,7 @@
 </head>
 <body>
     <div> 
+        <p>@Html.ActionLink("Create New","Create")</p>
         <table>
            <tr>
                <th>
@@ -30,7 +31,8 @@
             <th>
                     @Html.DisplayFor(modelItem => item.Address)
             </th>
-                <th>@Html.ActionLink("Delete","Delete",new { id=item.ID }) /
+                <th>
+                    @Html.ActionLink("Delete","Delete",new { id=item.ID }) /
                     @Html.ActionLink("Edit","Edit",new { id = item.ID })
                 </th>
    

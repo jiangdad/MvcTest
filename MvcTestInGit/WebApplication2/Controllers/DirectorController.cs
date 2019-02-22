@@ -53,7 +53,8 @@ namespace WebApplication2.Controllers
         {
             Director director = db.Director.Find(id);
             db.Director.Remove(director);
-            return View("index");
+            db.SaveChanges();
+            return RedirectToAction("index");
         }
 
     }

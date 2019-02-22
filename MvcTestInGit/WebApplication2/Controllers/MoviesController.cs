@@ -46,12 +46,13 @@ namespace WebApplication2.Controllers
         // 详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,ReleaseDate,Genre,Price,HumanNumber,Movie.Director.Name")] Movie movie,[Bind(Include="Director.Name")] Director director)
+        public ActionResult Create([Bind(Include = "ID,Name,ReleaseDate,Genre,Price,HumanNumber,Movie.Director.Name")] Movie movie,[Bind(Include="Name")] Director director)
         {
             if (ModelState.IsValid)
             {
                 db.Movies.Add(movie);
-                db.Director.Add(director);
+                movie.Director = director;
+                //db.Director.Add(director);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -113,6 +114,7 @@ namespace WebApplication2.Controllers
             Movie movie = db.Movies.Find(id);
             db.Movies.Remove(movie);
             db.SaveChanges();
+            
             return RedirectToAction("Index");
         }
         public ActionResult Index(string SearchInfo)
@@ -121,7 +123,7 @@ namespace WebApplication2.Controllers
             var Director = db.Director;
             if(!String.IsNullOrEmpty(SearchInfo))
             {
-                movies = movies.Where(p => p.Genre.Contains(SearchInfo));
+                movies = movies.Include(a=>a.Director).Where(p => p.Genre.Contains(SearchInfo));
             }
             //return View(Tuple.Create(movies,Director));
             return View(movies);

@@ -10,7 +10,7 @@ namespace WebApplication2.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int abc { get; set; }
+        //public int abc { get; set; }
         [Display(Name = "Release Date")]
 
         [DataType(DataType.Date)]
