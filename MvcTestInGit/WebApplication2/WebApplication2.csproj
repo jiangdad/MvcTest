@@ -150,6 +150,7 @@
     <Compile Include="Models\Director.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\MovieDbContext.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="LocalJavaScript\LocalJavaScript.js" />
+    <Content Include="LocalStyle\LocalStyle.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -200,6 +203,8 @@
     <Content Include="Views\Director\Create.cshtml" />
     <Content Include="Views\Director\Edit.cshtml" />
     <Content Include="Views\Director\Delete.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

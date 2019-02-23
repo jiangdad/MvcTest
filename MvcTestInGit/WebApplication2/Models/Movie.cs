@@ -21,5 +21,6 @@ namespace WebApplication2.Models
         public decimal Price { get; set; }
         public string HumanNumber { get; set; }
         public Director Director { get; set; }
+        public User User { get; set; }
     }
 }

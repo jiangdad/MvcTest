@@ -13,7 +13,7 @@ namespace WebApplication2.Models
         public System.Data.Entity.DbSet<Movie> Movies { get; set; }
         public System.Data.Entity.DbSet<Director> Director { get; set; }
 
-
+        public System.Data.Entity.DbSet<User> Users { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Director>()
