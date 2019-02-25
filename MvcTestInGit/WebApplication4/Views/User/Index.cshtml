@@ -1,0 +1,29 @@
+﻿@model List<WebApplication4.Models.Diary>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>My Diary</h2>
+<div>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Content</td>
+             <td>UserName</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.Content</td>
+                <td>@item.user.UserName</td>
+            </tr>
+        }
+
+
+    </table>
+
+</div>
+
+

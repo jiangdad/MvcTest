@@ -9,7 +9,7 @@ namespace WebApplication4.Models
     {
         protected override void Seed(UserDiaryDb userDiaryDb)
         {
-            userDiaryDb.user.Add(new User
+            userDiaryDb.User.Add(new User
             {
                 UserName = "jiang",
                 Password = "jiang",
@@ -20,7 +20,7 @@ namespace WebApplication4.Models
                      new Diary{ Title="title3", Content="content3", PubDate=DateTime.Now}
                  }
             });
-            userDiaryDb.user.Add(new User
+            userDiaryDb.User.Add(new User
             {
                 UserName = "liu",
                 Password = "liu",

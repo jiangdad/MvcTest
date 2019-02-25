@@ -1,0 +1,21 @@
+﻿@model WebApplication4.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+<div>
+    @using (Html.BeginForm())
+    {      @Html.AntiForgeryToken();
+        <div>
+       
+            @Html.LabelFor(model => model.UserName);
+            @Html.TextBoxFor(model => model.UserName);
+        </div>
+ <div>
+     @Html.LabelFor(model => model.Password);
+     @Html.TextBoxFor(model => model.Password);
+ </div>
+       <button type="submit" >register</button>
+    } 
+</div>
+<h2>register</h2>
+

@@ -7,8 +7,20 @@ namespace WebApplication4.Models
 {
     public class UserDiaryDb:DbContext
     {
-      public  DbSet<User> user ;
-       public DbSet<Diary> diary ;
 
+        public UserDiaryDb()
+            : base("WebApplication4.Models.UserDiaryDb")
+        {
+        }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Diary> DiaryUser { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<User>().ToTable("User_test");
+            //modelBuilder.Entity<Diary>().ToTable("Diary_test");
+        }
     }
 }

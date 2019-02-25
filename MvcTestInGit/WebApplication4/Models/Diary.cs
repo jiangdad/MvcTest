@@ -9,6 +9,7 @@ namespace WebApplication4.Models
 {
     public class Diary
     {
+        public int Id { get; set; }
         [DisplayName("Title"),Required]
         public string Title { get; set; }
         [DisplayName("Content"), Required]
