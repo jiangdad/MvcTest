@@ -19,10 +19,7 @@ namespace WebApplication2.Controllers
         //{
         //    return View(db.Movies.ToList());
         //}
-
-        // GET: Movies/Details/5
-        public ActionResult Details(int? id)
-        {
+          {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

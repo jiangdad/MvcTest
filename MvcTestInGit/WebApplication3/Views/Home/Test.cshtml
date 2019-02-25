@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+@{ 
+    string name = "蒋国涛";
+
+    List<SelectListItem> selectLists = new List<SelectListItem>();
+    selectLists.Add(new SelectListItem{Value = "1",Text="列表项1"});
+    selectLists.Add(new SelectListItem { Value = "2", Text = "列表项2" });
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div> 
+        @name
+
+    </div>
+<div>
+    @Html.DropDownList("ddlList", (SelectList)new SelectList(selectLists.AsEnumerable(), "Value", "Text"));
+</div>
+</body>
+</html>

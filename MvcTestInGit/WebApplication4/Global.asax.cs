@@ -6,9 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using WebApplication2.Models;
+using WebApplication4.Models;
 
-namespace WebApplication2
+namespace WebApplication4
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -18,9 +18,9 @@ namespace WebApplication2
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MovieDbContext>());
-            using (Models.MovieDbContext db = new MovieDbContext())
-            { db.Database.Initialize(true); }
+
+
+            Database.SetInitializer(new SampleData());
         }
     }
 }
