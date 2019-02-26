@@ -35,11 +35,12 @@ namespace WebApplication4.Controllers
             var diaries = new List<Diary>();
             var userid = db.User.FirstOrDefault(model => model.UserName == user.UserName).Id;
             
-            diaries = db.User.diaries.Where(d => d.UserId == userid).ToList();
+          
             var item = db.User.FirstOrDefault(model => model.Password == user.Password && model.UserName == user.UserName);
             //var user = db.User.ToArray();
             if(item!=null)
             {
+             //diaries = db.User;
              return View("UserIndex",diaries);
             }
             return View("login");

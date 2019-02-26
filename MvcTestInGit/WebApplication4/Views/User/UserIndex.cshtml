@@ -2,8 +2,23 @@
     ViewBag.Title = "Index";
 }
 <div>
-    @Html.DisplayFor(model => model.UserName);
-    @Html.DisplayFor(model => model.Password);
-</div>
+   <table>
+       <tr>
+           <th>id</th>
+           <th>UserName</th>
+           <th>Content</th>
+           <th>Titlr</th>
+
+       </tr>
+       @foreach (var diaries in Model)
+       {
+       <tr>
+           <th>@diaries.Id;</th>
+           <th>@diaries.user.UserName</th>
+           <th>@diaries.Content</th>
+           <th>@diaries.Title</th>
+       </tr>
+       }
+   </table>
 <h2>Index</h2>
 
