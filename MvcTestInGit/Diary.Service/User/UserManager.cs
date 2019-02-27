@@ -25,10 +25,12 @@ namespace Diary.Service.User
             IUserService _UserService = new UserService(_UserRepository, user.Id);
             return _UserService;
         }
+        //核查用户姓名是否存在
         public bool CheckUserName(string userName)
         {
             return !_UserRepository.Entities.Any(l => l.UserName == userName);
         }
+        //用户登录
         public UserLoginModel Login(DIary.Data.Users user)
         {
             UserLoginModel model = new UserLoginModel();

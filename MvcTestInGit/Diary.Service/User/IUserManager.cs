@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Diary.Service.User
 {
-    interface IUserManager
+    public interface IUserManager
     {
          IUserService Add(DIary.Data.Users user);
 

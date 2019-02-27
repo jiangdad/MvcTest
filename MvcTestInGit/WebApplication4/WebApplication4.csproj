@@ -46,12 +46,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.30225.0\lib\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.Extended, Version=6.0.0.0, Culture=neutral, PublicKeyToken=05b7e29bdd433584, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.30225.0\lib\EntityFramework.Extended.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.30225.0\lib\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.0.0.0\lib\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -110,6 +120,18 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Tgnet, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tgnet.1.6.30.181127\lib\Tgnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Tgnet.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tgnet.Web.2.2.4.170324\lib\Tgnet.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Tgnet.Web.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tgnet.Web.Mvc.3.2.2.180605\lib\Tgnet.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -139,8 +161,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Diary.cs" />
-    <Compile Include="Models\SampleData.cs" />
+    <Compile Include="Models\abandon\Diary.cs" />
+    <Compile Include="Models\abandon\SampleData.cs" />
     <Compile Include="Models\Test\DiaryContext.cs" />
     <Compile Include="Models\Test\DiaryUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -166,9 +188,10 @@
     <Compile Include="Models\Test\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserDiaryDb.cs" />
+    <Compile Include="Models\abandon\User.cs" />
+    <Compile Include="Models\abandon\UserDiaryDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReInject\Reinject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -256,6 +279,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DIary.Data\DIary.Data.csproj">
+      <Project>{1DB2F0BE-2553-4AC7-A9A9-43276754BB25}</Project>
+      <Name>DIary.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diary.Service\Diary.Service.csproj">
+      <Project>{4CDB0D26-819D-4881-9999-F51AC1811387}</Project>
+      <Name>Diary.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

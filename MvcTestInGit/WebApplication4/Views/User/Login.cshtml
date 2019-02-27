@@ -2,6 +2,34 @@
 @{
     ViewBag.Title = "Login";
 }
+<script>
+        $(function () {
+
+            $("form").submit(function (e) {
+                var userName = $("#user_login").val();
+                var userPwd = $("#password").val();
+                if (userName.length <= 0 || userPwd.length <= 0 || userName.length > 15) {
+                    alert("请输入合法的用户名和密码");
+                }
+                e.preventDefault();
+                $.post("/user/login", { "userName": userName, "passWord": userPwd }, function (obj) {
+                    if(obj)
+                    {
+                        var json = $.parseJSON(obj);
+                        alert(json.Msg);
+                        if(json.Status=="ok")
+                        {
+                            window.location.href = json.Url;
+                        }
+                    }
+                });
+            });
+
+        });
+
+
+</script>
+
 <div>
     @using (Html.BeginForm())
     {      @Html.AntiForgeryToken();
